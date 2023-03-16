@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tile Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="location">Map ID: <span id="id"></span></div>
+    <div id="tile-editor">
+      <div id="tile-editor-content">
+        <div id="left" onclick="left()"></div>
+        <div id="right" onclick="right()"></div>
+        <div id="up" onclick="up()"></div>
+        <div id="down" onclick="down()"></div>
+        <div
+          id="tile-editor-grid"
+          onmousedown="setTile(event)"
+          onmousemove="setTile(event)"
+          onmouseup="setTile(event)"
+        >
+          <img data-row="0" data-col="0" data-id="0" />
+          <img data-row="0" data-col="1" data-id="1" />
+          <img data-row="0" data-col="2" data-id="2" />
+          <img data-row="0" data-col="3" data-id="3" />
+          <img data-row="0" data-col="4" data-id="4" />
+          <img data-row="0" data-col="5" data-id="5" />
+          <img data-row="0" data-col="6" data-id="6" />
+          <img data-row="0" data-col="7" data-id="7" />
+          <img data-row="0" data-col="8" data-id="8" />
+          <img data-row="0" data-col="9" data-id="9" />
+          <img data-row="0" data-col="10" data-id="10" />
+          <img data-row="0" data-col="11" data-id="11" />
+          <img data-row="0" data-col="12" data-id="12" />
+          <img data-row="0" data-col="13" data-id="13" />
+          <img data-row="0" data-col="14" data-id="14" />
+          <img data-row="0" data-col="15" data-id="15" />
+          <img data-row="0" data-col="16" data-id="16" />
+          <img data-row="0" data-col="17" data-id="17" />
+          <img data-row="0" data-col="18" data-id="18" />
+          <img data-row="0" data-col="19" data-id="19" />
+          <img data-row="1" data-col="0" data-id="20" />
+          <img data-row="1" data-col="1" data-id="21" />
+          <img data-row="1" data-col="2" data-id="22" />
+          <img data-row="1" data-col="3" data-id="23" />
+          <img data-row="1" data-col="4" data-id="24" />
+          <img data-row="1" data-col="5" data-id="25" />
+          <img data-row="1" data-col="6" data-id="26" />
+          <img data-row="1" data-col="7" data-id="27" />
+          <img data-row="1" data-col="8" data-id="28" />
+          <img data-row="1" data-col="9" data-id="29" />
+          <img data-row="1" data-col="10" data-id="30" />
+          <img data-row="1" data-col="11" data-id="31" />
+          <img data-row="1" data-col="12" data-id="32" />
+          <img data-row="1" data-col="13" data-id="33" />
+          <img data-row="1" data-col="14" data-id="34" />
+          <img data-row="1" data-col="15" data-id="35" />
+          <img data-row="1" data-col="16" data-id="36" />
+          <img data-row="1" data-col="17" data-id="37" />
+          <img data-row="1" data-col="18" data-id="38" />
+          <img data-row="1" data-col="19" data-id="39" />
+          <img data-row="2" data-col="0" data-id="40" />
+          <img data-row="2" data-col="1" data-id="41" />
+          <img data-row="2" data-col="2" data-id="42" />
+          <img data-row="2" data-col="3" data-id="43" />
+          <img data-row="2" data-col="4" data-id="44" />
+          <img data-row="2" data-col="5" data-id="45" />
+          <img data-row="2" data-col="6" data-id="46" />
+          <img data-row="2" data-col="7" data-id="47" />
+          <img data-row="2" data-col="8" data-id="48" />
+          <img data-row="2" data-col="9" data-id="49" />
+          <img data-row="2" data-col="10" data-id="50" />
+          <img data-row="2" data-col="11" data-id="51" />
+          <img data-row="2" data-col="12" data-id="52" />
+          <img data-row="2" data-col="13" data-id="53" />
+          <img data-row="2" data-col="14" data-id="54" />
+          <img data-row="2" data-col="15" data-id="55" />
+          <img data-row="2" data-col="16" data-id="56" />
+          <img data-row="2" data-col="17" data-id="57" />
+          <img data-row="2" data-col="18" data-id="58" />
+          <img data-row="2" data-col="19" data-id="59" />
+          <img data-row="3" data-col="0" data-id="60" />
+          <img data-row="3" data-col="1" data-id="61" />
+          <img data-row="3" data-col="2" data-id="62" />
+          <img data-row="3" data-col="3" data-id="63" />
+          <img data-row="3" data-col="4" data-id="64" />
+          <img data-row="3" data-col="5" data-id="65" />
+          <img data-row="3" data-col="6" data-id="66" />
+          <img data-row="3" data-col="7" data-id="67" />
+          <img data-row="3" data-col="8" data-id="68" />
+          <img data-row="3" data-col="9" data-id="69" />
+          <img data-row="3" data-col="10" data-id="70" />
+          <img data-row="3" data-col="11" data-id="71" />
+          <img data-row="3" data-col="12" data-id="72" />
+          <img data-row="3" data-col="13" data-id="73" />
+          <img data-row="3" data-col="14" data-id="74" />
+          <img data-row="3" data-col="15" data-id="75" />
+          <img data-row="3" data-col="16" data-id="76" />
+          <img data-row="3" data-col="17" data-id="77" />
+          <img data-row="3" data-col="18" data-id="78" />
+          <img data-row="3" data-col="19" data-id="79" />
+          <img data-row="4" data-col="0" data-id="80" />
+          <img data-row="4" data-col="1" data-id="81" />
+          <img data-row="4" data-col="2" data-id="82" />
+          <img data-row="4" data-col="3" data-id="83" />
+          <img data-row="4" data-col="4" data-id="84" />
+          <img data-row="4" data-col="5" data-id="85" />
+          <img data-row="4" data-col="6" data-id="86" />
+          <img data-row="4" data-col="7" data-id="87" />
+          <img data-row="4" data-col="8" data-id="88" />
+          <img data-row="4" data-col="9" data-id="89" />
+          <img data-row="4" data-col="10" data-id="90" />
+          <img data-row="4" data-col="11" data-id="91" />
+          <img data-row="4" data-col="12" data-id="92" />
+          <img data-row="4" data-col="13" data-id="93" />
+          <img data-row="4" data-col="14" data-id="94" />
+          <img data-row="4" data-col="15" data-id="95" />
+          <img data-row="4" data-col="16" data-id="96" />
+          <img data-row="4" data-col="17" data-id="97" />
+          <img data-row="4" data-col="18" data-id="98" />
+          <img data-row="4" data-col="19" data-id="99" />
+          <img data-row="5" data-col="0" data-id="100" />
+          <img data-row="5" data-col="1" data-id="101" />
+          <img data-row="5" data-col="2" data-id="102" />
+          <img data-row="5" data-col="3" data-id="103" />
+          <img data-row="5" data-col="4" data-id="104" />
+          <img data-row="5" data-col="5" data-id="105" />
+          <img data-row="5" data-col="6" data-id="106" />
+          <img data-row="5" data-col="7" data-id="107" />
+          <img data-row="5" data-col="8" data-id="108" />
+          <img data-row="5" data-col="9" data-id="109" />
+          <img data-row="5" data-col="10" data-id="110" />
+          <img data-row="5" data-col="11" data-id="111" />
+          <img data-row="5" data-col="12" data-id="112" />
+          <img data-row="5" data-col="13" data-id="113" />
+          <img data-row="5" data-col="14" data-id="114" />
+          <img data-row="5" data-col="15" data-id="115" />
+          <img data-row="5" data-col="16" data-id="116" />
+          <img data-row="5" data-col="17" data-id="117" />
+          <img data-row="5" data-col="18" data-id="118" />
+          <img data-row="5" data-col="19" data-id="119" />
+          <img data-row="6" data-col="0" data-id="120" />
+          <img data-row="6" data-col="1" data-id="121" />
+          <img data-row="6" data-col="2" data-id="122" />
+          <img data-row="6" data-col="3" data-id="123" />
+          <img data-row="6" data-col="4" data-id="124" />
+          <img data-row="6" data-col="5" data-id="125" />
+          <img data-row="6" data-col="6" data-id="126" />
+          <img data-row="6" data-col="7" data-id="127" />
+          <img data-row="6" data-col="8" data-id="128" />
+          <img data-row="6" data-col="9" data-id="129" />
+          <img data-row="6" data-col="10" data-id="130" />
+          <img data-row="6" data-col="11" data-id="131" />
+          <img data-row="6" data-col="12" data-id="132" />
+          <img data-row="6" data-col="13" data-id="133" />
+          <img data-row="6" data-col="14" data-id="134" />
+          <img data-row="6" data-col="15" data-id="135" />
+          <img data-row="6" data-col="16" data-id="136" />
+          <img data-row="6" data-col="17" data-id="137" />
+          <img data-row="6" data-col="18" data-id="138" />
+          <img data-row="6" data-col="19" data-id="139" />
+          <img data-row="7" data-col="0" data-id="140" />
+          <img data-row="7" data-col="1" data-id="141" />
+          <img data-row="7" data-col="2" data-id="142" />
+          <img data-row="7" data-col="3" data-id="143" />
+          <img data-row="7" data-col="4" data-id="144" />
+          <img data-row="7" data-col="5" data-id="145" />
+          <img data-row="7" data-col="6" data-id="146" />
+          <img data-row="7" data-col="7" data-id="147" />
+          <img data-row="7" data-col="8" data-id="148" />
+          <img data-row="7" data-col="9" data-id="149" />
+          <img data-row="7" data-col="10" data-id="150" />
+          <img data-row="7" data-col="11" data-id="151" />
+          <img data-row="7" data-col="12" data-id="152" />
+          <img data-row="7" data-col="13" data-id="153" />
+          <img data-row="7" data-col="14" data-id="154" />
+          <img data-row="7" data-col="15" data-id="155" />
+          <img data-row="7" data-col="16" data-id="156" />
+          <img data-row="7" data-col="17" data-id="157" />
+          <img data-row="7" data-col="18" data-id="158" />
+          <img data-row="7" data-col="19" data-id="159" />
+          <img data-row="8" data-col="0" data-id="160" />
+          <img data-row="8" data-col="1" data-id="161" />
+          <img data-row="8" data-col="2" data-id="162" />
+          <img data-row="8" data-col="3" data-id="163" />
+          <img data-row="8" data-col="4" data-id="164" />
+          <img data-row="8" data-col="5" data-id="165" />
+          <img data-row="8" data-col="6" data-id="166" />
+          <img data-row="8" data-col="7" data-id="167" />
+          <img data-row="8" data-col="8" data-id="168" />
+          <img data-row="8" data-col="9" data-id="169" />
+          <img data-row="8" data-col="10" data-id="170" />
+          <img data-row="8" data-col="11" data-id="171" />
+          <img data-row="8" data-col="12" data-id="172" />
+          <img data-row="8" data-col="13" data-id="173" />
+          <img data-row="8" data-col="14" data-id="174" />
+          <img data-row="8" data-col="15" data-id="175" />
+          <img data-row="8" data-col="16" data-id="176" />
+          <img data-row="8" data-col="17" data-id="177" />
+          <img data-row="8" data-col="18" data-id="178" />
+          <img data-row="8" data-col="19" data-id="179" />
+          <img data-row="9" data-col="0" data-id="180" />
+          <img data-row="9" data-col="1" data-id="181" />
+          <img data-row="9" data-col="2" data-id="182" />
+          <img data-row="9" data-col="3" data-id="183" />
+          <img data-row="9" data-col="4" data-id="184" />
+          <img data-row="9" data-col="5" data-id="185" />
+          <img data-row="9" data-col="6" data-id="186" />
+          <img data-row="9" data-col="7" data-id="187" />
+          <img data-row="9" data-col="8" data-id="188" />
+          <img data-row="9" data-col="9" data-id="189" />
+          <img data-row="9" data-col="10" data-id="190" />
+          <img data-row="9" data-col="11" data-id="191" />
+          <img data-row="9" data-col="12" data-id="192" />
+          <img data-row="9" data-col="13" data-id="193" />
+          <img data-row="9" data-col="14" data-id="194" />
+          <img data-row="9" data-col="15" data-id="195" />
+          <img data-row="9" data-col="16" data-id="196" />
+          <img data-row="9" data-col="17" data-id="197" />
+          <img data-row="9" data-col="18" data-id="198" />
+          <img data-row="9" data-col="19" data-id="199" />
+          <img data-row="10" data-col="0" data-id="200" />
+          <img data-row="10" data-col="1" data-id="201" />
+          <img data-row="10" data-col="2" data-id="202" />
+          <img data-row="10" data-col="3" data-id="203" />
+          <img data-row="10" data-col="4" data-id="204" />
+          <img data-row="10" data-col="5" data-id="205" />
+          <img data-row="10" data-col="6" data-id="206" />
+          <img data-row="10" data-col="7" data-id="207" />
+          <img data-row="10" data-col="8" data-id="208" />
+          <img data-row="10" data-col="9" data-id="209" />
+          <img data-row="10" data-col="10" data-id="210" />
+          <img data-row="10" data-col="11" data-id="211" />
+          <img data-row="10" data-col="12" data-id="212" />
+          <img data-row="10" data-col="13" data-id="213" />
+          <img data-row="10" data-col="14" data-id="214" />
+          <img data-row="10" data-col="15" data-id="215" />
+          <img data-row="10" data-col="16" data-id="216" />
+          <img data-row="10" data-col="17" data-id="217" />
+          <img data-row="10" data-col="18" data-id="218" />
+          <img data-row="10" data-col="19" data-id="219" />
+          <img data-row="11" data-col="0" data-id="220" />
+          <img data-row="11" data-col="1" data-id="221" />
+          <img data-row="11" data-col="2" data-id="222" />
+          <img data-row="11" data-col="3" data-id="223" />
+          <img data-row="11" data-col="4" data-id="224" />
+          <img data-row="11" data-col="5" data-id="225" />
+          <img data-row="11" data-col="6" data-id="226" />
+          <img data-row="11" data-col="7" data-id="227" />
+          <img data-row="11" data-col="8" data-id="228" />
+          <img data-row="11" data-col="9" data-id="229" />
+          <img data-row="11" data-col="10" data-id="230" />
+          <img data-row="11" data-col="11" data-id="231" />
+          <img data-row="11" data-col="12" data-id="232" />
+          <img data-row="11" data-col="13" data-id="233" />
+          <img data-row="11" data-col="14" data-id="234" />
+          <img data-row="11" data-col="15" data-id="235" />
+          <img data-row="11" data-col="16" data-id="236" />
+          <img data-row="11" data-col="17" data-id="237" />
+          <img data-row="11" data-col="18" data-id="238" />
+          <img data-row="11" data-col="19" data-id="239" />
+          <img data-row="12" data-col="0" data-id="240" />
+          <img data-row="12" data-col="1" data-id="241" />
+          <img data-row="12" data-col="2" data-id="242" />
+          <img data-row="12" data-col="3" data-id="243" />
+          <img data-row="12" data-col="4" data-id="244" />
+          <img data-row="12" data-col="5" data-id="245" />
+          <img data-row="12" data-col="6" data-id="246" />
+          <img data-row="12" data-col="7" data-id="247" />
+          <img data-row="12" data-col="8" data-id="248" />
+          <img data-row="12" data-col="9" data-id="249" />
+          <img data-row="12" data-col="10" data-id="250" />
+          <img data-row="12" data-col="11" data-id="251" />
+          <img data-row="12" data-col="12" data-id="252" />
+          <img data-row="12" data-col="13" data-id="253" />
+          <img data-row="12" data-col="14" data-id="254" />
+          <img data-row="12" data-col="15" data-id="255" />
+          <img data-row="12" data-col="16" data-id="256" />
+          <img data-row="12" data-col="17" data-id="257" />
+          <img data-row="12" data-col="18" data-id="258" />
+          <img data-row="12" data-col="19" data-id="259" />
+          <img data-row="13" data-col="0" data-id="260" />
+          <img data-row="13" data-col="1" data-id="261" />
+          <img data-row="13" data-col="2" data-id="262" />
+          <img data-row="13" data-col="3" data-id="263" />
+          <img data-row="13" data-col="4" data-id="264" />
+          <img data-row="13" data-col="5" data-id="265" />
+          <img data-row="13" data-col="6" data-id="266" />
+          <img data-row="13" data-col="7" data-id="267" />
+          <img data-row="13" data-col="8" data-id="268" />
+          <img data-row="13" data-col="9" data-id="269" />
+          <img data-row="13" data-col="10" data-id="270" />
+          <img data-row="13" data-col="11" data-id="271" />
+          <img data-row="13" data-col="12" data-id="272" />
+          <img data-row="13" data-col="13" data-id="273" />
+          <img data-row="13" data-col="14" data-id="274" />
+          <img data-row="13" data-col="15" data-id="275" />
+          <img data-row="13" data-col="16" data-id="276" />
+          <img data-row="13" data-col="17" data-id="277" />
+          <img data-row="13" data-col="18" data-id="278" />
+          <img data-row="13" data-col="19" data-id="279" />
+          <img data-row="14" data-col="0" data-id="280" />
+          <img data-row="14" data-col="1" data-id="281" />
+          <img data-row="14" data-col="2" data-id="282" />
+          <img data-row="14" data-col="3" data-id="283" />
+          <img data-row="14" data-col="4" data-id="284" />
+          <img data-row="14" data-col="5" data-id="285" />
+          <img data-row="14" data-col="6" data-id="286" />
+          <img data-row="14" data-col="7" data-id="287" />
+          <img data-row="14" data-col="8" data-id="288" />
+          <img data-row="14" data-col="9" data-id="289" />
+          <img data-row="14" data-col="10" data-id="290" />
+          <img data-row="14" data-col="11" data-id="291" />
+          <img data-row="14" data-col="12" data-id="292" />
+          <img data-row="14" data-col="13" data-id="293" />
+          <img data-row="14" data-col="14" data-id="294" />
+          <img data-row="14" data-col="15" data-id="295" />
+          <img data-row="14" data-col="16" data-id="296" />
+          <img data-row="14" data-col="17" data-id="297" />
+          <img data-row="14" data-col="18" data-id="298" />
+          <img data-row="14" data-col="19" data-id="299" />
+          <img data-row="15" data-col="0" data-id="300" />
+          <img data-row="15" data-col="1" data-id="301" />
+          <img data-row="15" data-col="2" data-id="302" />
+          <img data-row="15" data-col="3" data-id="303" />
+          <img data-row="15" data-col="4" data-id="304" />
+          <img data-row="15" data-col="5" data-id="305" />
+          <img data-row="15" data-col="6" data-id="306" />
+          <img data-row="15" data-col="7" data-id="307" />
+          <img data-row="15" data-col="8" data-id="308" />
+          <img data-row="15" data-col="9" data-id="309" />
+          <img data-row="15" data-col="10" data-id="310" />
+          <img data-row="15" data-col="11" data-id="311" />
+          <img data-row="15" data-col="12" data-id="312" />
+          <img data-row="15" data-col="13" data-id="313" />
+          <img data-row="15" data-col="14" data-id="314" />
+          <img data-row="15" data-col="15" data-id="315" />
+          <img data-row="15" data-col="16" data-id="316" />
+          <img data-row="15" data-col="17" data-id="317" />
+          <img data-row="15" data-col="18" data-id="318" />
+          <img data-row="15" data-col="19" data-id="319" />
+          <img data-row="16" data-col="0" data-id="320" />
+          <img data-row="16" data-col="1" data-id="321" />
+          <img data-row="16" data-col="2" data-id="322" />
+          <img data-row="16" data-col="3" data-id="323" />
+          <img data-row="16" data-col="4" data-id="324" />
+          <img data-row="16" data-col="5" data-id="325" />
+          <img data-row="16" data-col="6" data-id="326" />
+          <img data-row="16" data-col="7" data-id="327" />
+          <img data-row="16" data-col="8" data-id="328" />
+          <img data-row="16" data-col="9" data-id="329" />
+          <img data-row="16" data-col="10" data-id="330" />
+          <img data-row="16" data-col="11" data-id="331" />
+          <img data-row="16" data-col="12" data-id="332" />
+          <img data-row="16" data-col="13" data-id="333" />
+          <img data-row="16" data-col="14" data-id="334" />
+          <img data-row="16" data-col="15" data-id="335" />
+          <img data-row="16" data-col="16" data-id="336" />
+          <img data-row="16" data-col="17" data-id="337" />
+          <img data-row="16" data-col="18" data-id="338" />
+          <img data-row="16" data-col="19" data-id="339" />
+          <img data-row="17" data-col="0" data-id="340" />
+          <img data-row="17" data-col="1" data-id="341" />
+          <img data-row="17" data-col="2" data-id="342" />
+          <img data-row="17" data-col="3" data-id="343" />
+          <img data-row="17" data-col="4" data-id="344" />
+          <img data-row="17" data-col="5" data-id="345" />
+          <img data-row="17" data-col="6" data-id="346" />
+          <img data-row="17" data-col="7" data-id="347" />
+          <img data-row="17" data-col="8" data-id="348" />
+          <img data-row="17" data-col="9" data-id="349" />
+          <img data-row="17" data-col="10" data-id="350" />
+          <img data-row="17" data-col="11" data-id="351" />
+          <img data-row="17" data-col="12" data-id="352" />
+          <img data-row="17" data-col="13" data-id="353" />
+          <img data-row="17" data-col="14" data-id="354" />
+          <img data-row="17" data-col="15" data-id="355" />
+          <img data-row="17" data-col="16" data-id="356" />
+          <img data-row="17" data-col="17" data-id="357" />
+          <img data-row="17" data-col="18" data-id="358" />
+          <img data-row="17" data-col="19" data-id="359" />
+          <img data-row="18" data-col="0" data-id="360" />
+          <img data-row="18" data-col="1" data-id="361" />
+          <img data-row="18" data-col="2" data-id="362" />
+          <img data-row="18" data-col="3" data-id="363" />
+          <img data-row="18" data-col="4" data-id="364" />
+          <img data-row="18" data-col="5" data-id="365" />
+          <img data-row="18" data-col="6" data-id="366" />
+          <img data-row="18" data-col="7" data-id="367" />
+          <img data-row="18" data-col="8" data-id="368" />
+          <img data-row="18" data-col="9" data-id="369" />
+          <img data-row="18" data-col="10" data-id="370" />
+          <img data-row="18" data-col="11" data-id="371" />
+          <img data-row="18" data-col="12" data-id="372" />
+          <img data-row="18" data-col="13" data-id="373" />
+          <img data-row="18" data-col="14" data-id="374" />
+          <img data-row="18" data-col="15" data-id="375" />
+          <img data-row="18" data-col="16" data-id="376" />
+          <img data-row="18" data-col="17" data-id="377" />
+          <img data-row="18" data-col="18" data-id="378" />
+          <img data-row="18" data-col="19" data-id="379" />
+          <img data-row="19" data-col="0" data-id="380" />
+          <img data-row="19" data-col="1" data-id="381" />
+          <img data-row="19" data-col="2" data-id="382" />
+          <img data-row="19" data-col="3" data-id="383" />
+          <img data-row="19" data-col="4" data-id="384" />
+          <img data-row="19" data-col="5" data-id="385" />
+          <img data-row="19" data-col="6" data-id="386" />
+          <img data-row="19" data-col="7" data-id="387" />
+          <img data-row="19" data-col="8" data-id="388" />
+          <img data-row="19" data-col="9" data-id="389" />
+          <img data-row="19" data-col="10" data-id="390" />
+          <img data-row="19" data-col="11" data-id="391" />
+          <img data-row="19" data-col="12" data-id="392" />
+          <img data-row="19" data-col="13" data-id="393" />
+          <img data-row="19" data-col="14" data-id="394" />
+          <img data-row="19" data-col="15" data-id="395" />
+          <img data-row="19" data-col="16" data-id="396" />
+          <img data-row="19" data-col="17" data-id="397" />
+          <img data-row="19" data-col="18" data-id="398" />
+          <img data-row="19" data-col="19" data-id="399" />
+        </div>
+      </div>
+    </div>
+    <div id="pannel">
+      <img id="active-item" src="" />
+      <div id="item-selector">
+        <div class="item-selector-content" onclick="showItems()">Tiles</div>
+        <div class="item-selector-content">Items</div>
+        <div class="item-selector-content">Enemies</div>
+        <div class="item-selector-content">Players</div>
+        <div class="item-selector-content" onclick="setEraser()">Eraser</div>
+      </div>
+      <div id="map-btn" onclick="showMap()">View Map</div>
+    </div>
+    <div id="map">
+      <div id="close-map" onclick="closeMap()">X</div>
+      <div id="map-content" onclick="setMapLocation(event)">
+        <div data-row="0" data-col="0" data-id="0">0</div>
+        <div data-row="0" data-col="1" data-id="1">1</div>
+        <div data-row="0" data-col="2" data-id="2">2</div>
+        <div data-row="0" data-col="3" data-id="3">3</div>
+        <div data-row="0" data-col="4" data-id="4">4</div>
+        <div data-row="0" data-col="5" data-id="5">5</div>
+        <div data-row="0" data-col="6" data-id="6">6</div>
+        <div data-row="0" data-col="7" data-id="7">7</div>
+        <div data-row="0" data-col="8" data-id="8">8</div>
+        <div data-row="0" data-col="9" data-id="9">9</div>
+        <div data-row="0" data-col="10" data-id="10">10</div>
+        <div data-row="0" data-col="11" data-id="11">11</div>
+        <div data-row="0" data-col="12" data-id="12">12</div>
+        <div data-row="0" data-col="13" data-id="13">13</div>
+        <div data-row="0" data-col="14" data-id="14">14</div>
+        <div data-row="1" data-col="0" data-id="15">15</div>
+        <div data-row="1" data-col="1" data-id="16">16</div>
+        <div data-row="1" data-col="2" data-id="17">17</div>
+        <div data-row="1" data-col="3" data-id="18">18</div>
+        <div data-row="1" data-col="4" data-id="19">19</div>
+        <div data-row="1" data-col="5" data-id="20">20</div>
+        <div data-row="1" data-col="6" data-id="21">21</div>
+        <div data-row="1" data-col="7" data-id="22">22</div>
+        <div data-row="1" data-col="8" data-id="23">23</div>
+        <div data-row="1" data-col="9" data-id="24">24</div>
+        <div data-row="1" data-col="10" data-id="25">25</div>
+        <div data-row="1" data-col="11" data-id="26">26</div>
+        <div data-row="1" data-col="12" data-id="27">27</div>
+        <div data-row="1" data-col="13" data-id="28">28</div>
+        <div data-row="1" data-col="14" data-id="29">29</div>
+        <div data-row="2" data-col="0" data-id="30">30</div>
+        <div data-row="2" data-col="1" data-id="31">31</div>
+        <div data-row="2" data-col="2" data-id="32">32</div>
+        <div data-row="2" data-col="3" data-id="33">33</div>
+        <div data-row="2" data-col="4" data-id="34">34</div>
+        <div data-row="2" data-col="5" data-id="35">35</div>
+        <div data-row="2" data-col="6" data-id="36">36</div>
+        <div data-row="2" data-col="7" data-id="37">37</div>
+        <div data-row="2" data-col="8" data-id="38">38</div>
+        <div data-row="2" data-col="9" data-id="39">39</div>
+        <div data-row="2" data-col="10" data-id="40">40</div>
+        <div data-row="2" data-col="11" data-id="41">41</div>
+        <div data-row="2" data-col="12" data-id="42">42</div>
+        <div data-row="2" data-col="13" data-id="43">43</div>
+        <div data-row="2" data-col="14" data-id="44">44</div>
+        <div data-row="3" data-col="0" data-id="45">45</div>
+        <div data-row="3" data-col="1" data-id="46">46</div>
+        <div data-row="3" data-col="2" data-id="47">47</div>
+        <div data-row="3" data-col="3" data-id="48">48</div>
+        <div data-row="3" data-col="4" data-id="49">49</div>
+        <div data-row="3" data-col="5" data-id="50">50</div>
+        <div data-row="3" data-col="6" data-id="51">51</div>
+        <div data-row="3" data-col="7" data-id="52">52</div>
+        <div data-row="3" data-col="8" data-id="53">53</div>
+        <div data-row="3" data-col="9" data-id="54">54</div>
+        <div data-row="3" data-col="10" data-id="55">55</div>
+        <div data-row="3" data-col="11" data-id="56">56</div>
+        <div data-row="3" data-col="12" data-id="57">57</div>
+        <div data-row="3" data-col="13" data-id="58">58</div>
+        <div data-row="3" data-col="14" data-id="59">59</div>
+        <div data-row="4" data-col="0" data-id="60">60</div>
+        <div data-row="4" data-col="1" data-id="61">61</div>
+        <div data-row="4" data-col="2" data-id="62">62</div>
+        <div data-row="4" data-col="3" data-id="63">63</div>
+        <div data-row="4" data-col="4" data-id="64">64</div>
+        <div data-row="4" data-col="5" data-id="65">65</div>
+        <div data-row="4" data-col="6" data-id="66">66</div>
+        <div data-row="4" data-col="7" data-id="67">67</div>
+        <div data-row="4" data-col="8" data-id="68">68</div>
+        <div data-row="4" data-col="9" data-id="69">69</div>
+        <div data-row="4" data-col="10" data-id="70">70</div>
+        <div data-row="4" data-col="11" data-id="71">71</div>
+        <div data-row="4" data-col="12" data-id="72">72</div>
+        <div data-row="4" data-col="13" data-id="73">73</div>
+        <div data-row="4" data-col="14" data-id="74">74</div>
+        <div data-row="5" data-col="0" data-id="75">75</div>
+        <div data-row="5" data-col="1" data-id="76">76</div>
+        <div data-row="5" data-col="2" data-id="77">77</div>
+        <div data-row="5" data-col="3" data-id="78">78</div>
+        <div data-row="5" data-col="4" data-id="79">79</div>
+        <div data-row="5" data-col="5" data-id="80">80</div>
+        <div data-row="5" data-col="6" data-id="81">81</div>
+        <div data-row="5" data-col="7" data-id="82">82</div>
+        <div data-row="5" data-col="8" data-id="83">83</div>
+        <div data-row="5" data-col="9" data-id="84">84</div>
+        <div data-row="5" data-col="10" data-id="85">85</div>
+        <div data-row="5" data-col="11" data-id="86">86</div>
+        <div data-row="5" data-col="12" data-id="87">87</div>
+        <div data-row="5" data-col="13" data-id="88">88</div>
+        <div data-row="5" data-col="14" data-id="89">89</div>
+        <div data-row="6" data-col="0" data-id="90">90</div>
+        <div data-row="6" data-col="1" data-id="91">91</div>
+        <div data-row="6" data-col="2" data-id="92">92</div>
+        <div data-row="6" data-col="3" data-id="93">93</div>
+        <div data-row="6" data-col="4" data-id="94">94</div>
+        <div data-row="6" data-col="5" data-id="95">95</div>
+        <div data-row="6" data-col="6" data-id="96">96</div>
+        <div data-row="6" data-col="7" data-id="97">97</div>
+        <div data-row="6" data-col="8" data-id="98">98</div>
+        <div data-row="6" data-col="9" data-id="99">99</div>
+        <div data-row="6" data-col="10" data-id="100">100</div>
+        <div data-row="6" data-col="11" data-id="101">101</div>
+        <div data-row="6" data-col="12" data-id="102">102</div>
+        <div data-row="6" data-col="13" data-id="103">103</div>
+        <div data-row="6" data-col="14" data-id="104">104</div>
+        <div data-row="7" data-col="0" data-id="105">105</div>
+        <div data-row="7" data-col="1" data-id="106">106</div>
+        <div data-row="7" data-col="2" data-id="107">107</div>
+        <div data-row="7" data-col="3" data-id="108">108</div>
+        <div data-row="7" data-col="4" data-id="109">109</div>
+        <div data-row="7" data-col="5" data-id="110">110</div>
+        <div data-row="7" data-col="6" data-id="111">111</div>
+        <div data-row="7" data-col="7" data-id="112">112</div>
+        <div data-row="7" data-col="8" data-id="113">113</div>
+        <div data-row="7" data-col="9" data-id="114">114</div>
+        <div data-row="7" data-col="10" data-id="115">115</div>
+        <div data-row="7" data-col="11" data-id="116">116</div>
+        <div data-row="7" data-col="12" data-id="117">117</div>
+        <div data-row="7" data-col="13" data-id="118">118</div>
+        <div data-row="7" data-col="14" data-id="119">119</div>
+        <div data-row="8" data-col="0" data-id="120">120</div>
+        <div data-row="8" data-col="1" data-id="121">121</div>
+        <div data-row="8" data-col="2" data-id="122">122</div>
+        <div data-row="8" data-col="3" data-id="123">123</div>
+        <div data-row="8" data-col="4" data-id="124">124</div>
+        <div data-row="8" data-col="5" data-id="125">125</div>
+        <div data-row="8" data-col="6" data-id="126">126</div>
+        <div data-row="8" data-col="7" data-id="127">127</div>
+        <div data-row="8" data-col="8" data-id="128">128</div>
+        <div data-row="8" data-col="9" data-id="129">129</div>
+        <div data-row="8" data-col="10" data-id="130">130</div>
+        <div data-row="8" data-col="11" data-id="131">131</div>
+        <div data-row="8" data-col="12" data-id="132">132</div>
+        <div data-row="8" data-col="13" data-id="133">133</div>
+        <div data-row="8" data-col="14" data-id="134">134</div>
+        <div data-row="9" data-col="0" data-id="135">135</div>
+        <div data-row="9" data-col="1" data-id="136">136</div>
+        <div data-row="9" data-col="2" data-id="137">137</div>
+        <div data-row="9" data-col="3" data-id="138">138</div>
+        <div data-row="9" data-col="4" data-id="139">139</div>
+        <div data-row="9" data-col="5" data-id="140">140</div>
+        <div data-row="9" data-col="6" data-id="141">141</div>
+        <div data-row="9" data-col="7" data-id="142">142</div>
+        <div data-row="9" data-col="8" data-id="143">143</div>
+        <div data-row="9" data-col="9" data-id="144">144</div>
+        <div data-row="9" data-col="10" data-id="145">145</div>
+        <div data-row="9" data-col="11" data-id="146">146</div>
+        <div data-row="9" data-col="12" data-id="147">147</div>
+        <div data-row="9" data-col="13" data-id="148">148</div>
+        <div data-row="9" data-col="14" data-id="149">149</div>
+        <div data-row="10" data-col="0" data-id="150">150</div>
+        <div data-row="10" data-col="1" data-id="151">151</div>
+        <div data-row="10" data-col="2" data-id="152">152</div>
+        <div data-row="10" data-col="3" data-id="153">153</div>
+        <div data-row="10" data-col="4" data-id="154">154</div>
+        <div data-row="10" data-col="5" data-id="155">155</div>
+        <div data-row="10" data-col="6" data-id="156">156</div>
+        <div data-row="10" data-col="7" data-id="157">157</div>
+        <div data-row="10" data-col="8" data-id="158">158</div>
+        <div data-row="10" data-col="9" data-id="159">159</div>
+        <div data-row="10" data-col="10" data-id="160">160</div>
+        <div data-row="10" data-col="11" data-id="161">161</div>
+        <div data-row="10" data-col="12" data-id="162">162</div>
+        <div data-row="10" data-col="13" data-id="163">163</div>
+        <div data-row="10" data-col="14" data-id="164">164</div>
+        <div data-row="11" data-col="0" data-id="165">165</div>
+        <div data-row="11" data-col="1" data-id="166">166</div>
+        <div data-row="11" data-col="2" data-id="167">167</div>
+        <div data-row="11" data-col="3" data-id="168">168</div>
+        <div data-row="11" data-col="4" data-id="169">169</div>
+        <div data-row="11" data-col="5" data-id="170">170</div>
+        <div data-row="11" data-col="6" data-id="171">171</div>
+        <div data-row="11" data-col="7" data-id="172">172</div>
+        <div data-row="11" data-col="8" data-id="173">173</div>
+        <div data-row="11" data-col="9" data-id="174">174</div>
+        <div data-row="11" data-col="10" data-id="175">175</div>
+        <div data-row="11" data-col="11" data-id="176">176</div>
+        <div data-row="11" data-col="12" data-id="177">177</div>
+        <div data-row="11" data-col="13" data-id="178">178</div>
+        <div data-row="11" data-col="14" data-id="179">179</div>
+        <div data-row="12" data-col="0" data-id="180">180</div>
+        <div data-row="12" data-col="1" data-id="181">181</div>
+        <div data-row="12" data-col="2" data-id="182">182</div>
+        <div data-row="12" data-col="3" data-id="183">183</div>
+        <div data-row="12" data-col="4" data-id="184">184</div>
+        <div data-row="12" data-col="5" data-id="185">185</div>
+        <div data-row="12" data-col="6" data-id="186">186</div>
+        <div data-row="12" data-col="7" data-id="187">187</div>
+        <div data-row="12" data-col="8" data-id="188">188</div>
+        <div data-row="12" data-col="9" data-id="189">189</div>
+        <div data-row="12" data-col="10" data-id="190">190</div>
+        <div data-row="12" data-col="11" data-id="191">191</div>
+        <div data-row="12" data-col="12" data-id="192">192</div>
+        <div data-row="12" data-col="13" data-id="193">193</div>
+        <div data-row="12" data-col="14" data-id="194">194</div>
+        <div data-row="13" data-col="0" data-id="195">195</div>
+        <div data-row="13" data-col="1" data-id="196">196</div>
+        <div data-row="13" data-col="2" data-id="197">197</div>
+        <div data-row="13" data-col="3" data-id="198">198</div>
+        <div data-row="13" data-col="4" data-id="199">199</div>
+        <div data-row="13" data-col="5" data-id="200">200</div>
+        <div data-row="13" data-col="6" data-id="201">201</div>
+        <div data-row="13" data-col="7" data-id="202">202</div>
+        <div data-row="13" data-col="8" data-id="203">203</div>
+        <div data-row="13" data-col="9" data-id="204">204</div>
+        <div data-row="13" data-col="10" data-id="205">205</div>
+        <div data-row="13" data-col="11" data-id="206">206</div>
+        <div data-row="13" data-col="12" data-id="207">207</div>
+        <div data-row="13" data-col="13" data-id="208">208</div>
+        <div data-row="13" data-col="14" data-id="209">209</div>
+        <div data-row="14" data-col="0" data-id="210">210</div>
+        <div data-row="14" data-col="1" data-id="211">211</div>
+        <div data-row="14" data-col="2" data-id="212">212</div>
+        <div data-row="14" data-col="3" data-id="213">213</div>
+        <div data-row="14" data-col="4" data-id="214">214</div>
+        <div data-row="14" data-col="5" data-id="215">215</div>
+        <div data-row="14" data-col="6" data-id="216">216</div>
+        <div data-row="14" data-col="7" data-id="217">217</div>
+        <div data-row="14" data-col="8" data-id="218">218</div>
+        <div data-row="14" data-col="9" data-id="219">219</div>
+        <div data-row="14" data-col="10" data-id="220">220</div>
+        <div data-row="14" data-col="11" data-id="221">221</div>
+        <div data-row="14" data-col="12" data-id="222">222</div>
+        <div data-row="14" data-col="13" data-id="223">223</div>
+        <div data-row="14" data-col="14" data-id="224">224</div>
+      </div>
+    </div>
+    <div id="items" onclick="hideItems()">
+      <div id="items-content">
+        <div id="tiles" onclick="selectItem(event)">
+          <img src="./assets/Tiles\box.png" />
+          <img src="./assets/Tiles\boxAlt.png" />
+          <img src="./assets/Tiles\boxCoin.png" />
+          <img src="./assets/Tiles\boxCoinAlt.png" />
+          <img src="./assets/Tiles\boxCoinAlt_disabled.png" />
+          <img src="./assets/Tiles\boxCoin_disabled.png" />
+          <img src="./assets/Tiles\boxEmpty.png" />
+          <img src="./assets/Tiles\boxExplosive.png" />
+          <img src="./assets/Tiles\boxExplosiveAlt.png" />
+          <img src="./assets/Tiles\boxExplosive_disabled.png" />
+          <img src="./assets/Tiles\boxItem.png" />
+          <img src="./assets/Tiles\boxItemAlt.png" />
+          <img src="./assets/Tiles\boxItemAlt_disabled.png" />
+          <img src="./assets/Tiles\boxItem_disabled.png" />
+          <img src="./assets/Tiles\boxWarning.png" />
+          <img src="./assets/Tiles\brickWall.png" />
+          <img src="./assets/Tiles\bridge.png" />
+          <img src="./assets/Tiles\bridgeLogs.png" />
+          <img src="./assets/Tiles\castle.png" />
+          <img src="./assets/Tiles\castleCenter.png" />
+          <img src="./assets/Tiles\castleCenter_rounded.png" />
+          <img src="./assets/Tiles\castleCliffLeft.png" />
+          <img src="./assets/Tiles\castleCliffLeftAlt.png" />
+          <img src="./assets/Tiles\castleCliffRight.png" />
+          <img src="./assets/Tiles\castleCliffRightAlt.png" />
+          <img src="./assets/Tiles\castleHalf.png" />
+          <img src="./assets/Tiles\castleHalfLeft.png" />
+          <img src="./assets/Tiles\castleHalfMid.png" />
+          <img src="./assets/Tiles\castleHalfRight.png" />
+          <img src="./assets/Tiles\castleHillLeft.png" />
+          <img src="./assets/Tiles\castleHillLeft2.png" />
+          <img src="./assets/Tiles\castleHillRight.png" />
+          <img src="./assets/Tiles\castleHillRight2.png" />
+          <img src="./assets/Tiles\castleLeft.png" />
+          <img src="./assets/Tiles\castleMid.png" />
+          <img src="./assets/Tiles\castleRight.png" />
+          <img src="./assets/Tiles\dirt.png" />
+          <img src="./assets/Tiles\dirtCenter.png" />
+          <img src="./assets/Tiles\dirtCenter_rounded.png" />
+          <img src="./assets/Tiles\dirtCliffLeft.png" />
+          <img src="./assets/Tiles\dirtCliffLeftAlt.png" />
+          <img src="./assets/Tiles\dirtCliffRight.png" />
+          <img src="./assets/Tiles\dirtCliffRightAlt.png" />
+          <img src="./assets/Tiles\dirtHalf.png" />
+          <img src="./assets/Tiles\dirtHalfLeft.png" />
+          <img src="./assets/Tiles\dirtHalfMid.png" />
+          <img src="./assets/Tiles\dirtHalfRight.png" />
+          <img src="./assets/Tiles\dirtHillLeft.png" />
+          <img src="./assets/Tiles\dirtHillLeft2.png" />
+          <img src="./assets/Tiles\dirtHillRight.png" />
+          <img src="./assets/Tiles\dirtHillRight2.png" />
+          <img src="./assets/Tiles\dirtLeft.png" />
+          <img src="./assets/Tiles\dirtMid.png" />
+          <img src="./assets/Tiles\dirtRight.png" />
+          <img src="./assets/Tiles\door_closedMid.png" />
+          <img src="./assets/Tiles\door_closedTop.png" />
+          <img src="./assets/Tiles\door_openMid.png" />
+          <img src="./assets/Tiles\door_openTop.png" />
+          <img src="./assets/Tiles\fence.png" />
+          <img src="./assets/Tiles\fenceBroken.png" />
+          <img src="./assets/Tiles\grass.png" />
+          <img src="./assets/Tiles\grassCenter.png" />
+          <img src="./assets/Tiles\grassCenter_rounded.png" />
+          <img src="./assets/Tiles\grassCliffLeft.png" />
+          <img src="./assets/Tiles\grassCliffLeftAlt.png" />
+          <img src="./assets/Tiles\grassCliffRight.png" />
+          <img src="./assets/Tiles\grassCliffRightAlt.png" />
+          <img src="./assets/Tiles\grassHalf.png" />
+          <img src="./assets/Tiles\grassHalfLeft.png" />
+          <img src="./assets/Tiles\grassHalfMid.png" />
+          <img src="./assets/Tiles\grassHalfRight.png" />
+          <img src="./assets/Tiles\grassHillLeft.png" />
+          <img src="./assets/Tiles\grassHillLeft2.png" />
+          <img src="./assets/Tiles\grassHillRight.png" />
+          <img src="./assets/Tiles\grassHillRight2.png" />
+          <img src="./assets/Tiles\grassLeft.png" />
+          <img src="./assets/Tiles\grassMid.png" />
+          <img src="./assets/Tiles\grassRight.png" />
+          <img src="./assets/Tiles\hill_large.png" />
+          <img src="./assets/Tiles\hill_largeAlt.png" />
+          <img src="./assets/Tiles\hill_small.png" />
+          <img src="./assets/Tiles\hill_smallAlt.png" />
+          <img src="./assets/Tiles\ladder_mid.png" />
+          <img src="./assets/Tiles\ladder_top.png" />
+          <img src="./assets/Tiles\liquidLava.png" />
+          <img src="./assets/Tiles\liquidLavaTop.png" />
+          <img src="./assets/Tiles\liquidLavaTop_mid.png" />
+          <img src="./assets/Tiles\liquidWater.png" />
+          <img src="./assets/Tiles\liquidWaterTop.png" />
+          <img src="./assets/Tiles\liquidWaterTop_mid.png" />
+          <img src="./assets/Tiles\lock_blue.png" />
+          <img src="./assets/Tiles\lock_green.png" />
+          <img src="./assets/Tiles\lock_red.png" />
+          <img src="./assets/Tiles\lock_yellow.png" />
+          <img src="./assets/Tiles\rockHillLeft.png" />
+          <img src="./assets/Tiles\rockHillRight.png" />
+          <img src="./assets/Tiles\ropeAttached.png" />
+          <img src="./assets/Tiles\ropeHorizontal.png" />
+          <img src="./assets/Tiles\ropeVertical.png" />
+          <img src="./assets/Tiles\sand.png" />
+          <img src="./assets/Tiles\sandCenter.png" />
+          <img src="./assets/Tiles\sandCenter_rounded.png" />
+          <img src="./assets/Tiles\sandCliffLeft.png" />
+          <img src="./assets/Tiles\sandCliffLeftAlt.png" />
+          <img src="./assets/Tiles\sandCliffRight.png" />
+          <img src="./assets/Tiles\sandCliffRightAlt.png" />
+          <img src="./assets/Tiles\sandHalf.png" />
+          <img src="./assets/Tiles\sandHalfLeft.png" />
+          <img src="./assets/Tiles\sandHalfMid.png" />
+          <img src="./assets/Tiles\sandHalfRight.png" />
+          <img src="./assets/Tiles\sandHillLeft.png" />
+          <img src="./assets/Tiles\sandHillLeft2.png" />
+          <img src="./assets/Tiles\sandHillRight.png" />
+          <img src="./assets/Tiles\sandHillRight2.png" />
+          <img src="./assets/Tiles\sandLeft.png" />
+          <img src="./assets/Tiles\sandMid.png" />
+          <img src="./assets/Tiles\sandRight.png" />
+          <img src="./assets/Tiles\sign.png" />
+          <img src="./assets/Tiles\signExit.png" />
+          <img src="./assets/Tiles\signLeft.png" />
+          <img src="./assets/Tiles\signRight.png" />
+          <img src="./assets/Tiles\snow.png" />
+          <img src="./assets/Tiles\snowCenter.png" />
+          <img src="./assets/Tiles\snowCenter_rounded.png" />
+          <img src="./assets/Tiles\snowCliffLeft.png" />
+          <img src="./assets/Tiles\snowCliffLeftAlt.png" />
+          <img src="./assets/Tiles\snowCliffRight.png" />
+          <img src="./assets/Tiles\snowCliffRightAlt.png" />
+          <img src="./assets/Tiles\snowHalf.png" />
+          <img src="./assets/Tiles\snowHalfLeft.png" />
+          <img src="./assets/Tiles\snowHalfMid.png" />
+          <img src="./assets/Tiles\snowHalfRight.png" />
+          <img src="./assets/Tiles\snowHillLeft.png" />
+          <img src="./assets/Tiles\snowHillLeft2.png" />
+          <img src="./assets/Tiles\snowHillRight.png" />
+          <img src="./assets/Tiles\snowHillRight2.png" />
+          <img src="./assets/Tiles\snowLeft.png" />
+          <img src="./assets/Tiles\snowMid.png" />
+          <img src="./assets/Tiles\snowRight.png" />
+          <img src="./assets/Tiles\stone.png" />
+          <img src="./assets/Tiles\stoneCenter.png" />
+          <img src="./assets/Tiles\stoneCenter_rounded.png" />
+          <img src="./assets/Tiles\stoneCliffLeft.png" />
+          <img src="./assets/Tiles\stoneCliffLeftAlt.png" />
+          <img src="./assets/Tiles\stoneCliffRight.png" />
+          <img src="./assets/Tiles\stoneCliffRightAlt.png" />
+          <img src="./assets/Tiles\stoneHalf.png" />
+          <img src="./assets/Tiles\stoneHalfLeft.png" />
+          <img src="./assets/Tiles\stoneHalfMid.png" />
+          <img src="./assets/Tiles\stoneHalfRight.png" />
+          <img src="./assets/Tiles\stoneHillLeft2.png" />
+          <img src="./assets/Tiles\stoneHillRight2.png" />
+          <img src="./assets/Tiles\stoneLeft.png" />
+          <img src="./assets/Tiles\stoneMid.png" />
+          <img src="./assets/Tiles\stoneRight.png" />
+          <img src="./assets/Tiles\stoneWall.png" />
+          <img src="./assets/Tiles\Thumbs.db" />
+          <img src="./assets/Tiles\tochLit.png" />
+          <img src="./assets/Tiles\tochLit2.png" />
+          <img src="./assets/Tiles\torch.png" />
+          <img src="./assets/Tiles\window.png" />
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
